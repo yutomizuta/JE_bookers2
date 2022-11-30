@@ -9,6 +9,14 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
+      <!-- <h1>投稿検索</h1> -->
+      <%= search_form_for @q, url: search_books_path do |f| %>
+        <%= f.label :title_cont, 'Title' %>
+        <%= f.search_field :title_cont %>
+        <%= f.label :body_cont, 'Opinion' %>
+        <%= f.search_field :body_cont %>
+        <%= f.submit '検索' %>
+      <% end %>
       <%= render 'index', books: @books%>
     </div>
   </div>

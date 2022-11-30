@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
 
   def show
     @book = Book.find(params[:id])
@@ -42,6 +43,10 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def book_params
@@ -53,5 +58,9 @@ class BooksController < ApplicationController
     unless @book.user == current_user
       redirect_to books_path
     end
+  end
+
+  def set_q
+    @q = Book.ransack(params[:q])
   end
 end
