@@ -2,6 +2,13 @@
   <%= render 'layouts/errors', obj: @book %>
   <div class='row'>
     <div class='col-md-3'>
+      <div class="previews">
+        <div class="slider">
+            <%= image_tag 'library-869061_960_720.jpg' %>
+            <%= image_tag 'undraw_Having_fun_re_vj4h.png' %>
+            <%= image_tag 'undraw_true_friends_c94g.png' %>
+        </div>
+      </div>
       <h2>User info</h2>
       <%= render 'users/info', user: current_user %>
       <h2 class="mt-3">New book</h2>
@@ -9,7 +16,6 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <!-- <h1>投稿検索</h1> -->
       <%= search_form_for @q, url: search_books_path do |f| %>
         <%= f.label :title_cont, 'Title' %>
         <%= f.search_field :title_cont %>
