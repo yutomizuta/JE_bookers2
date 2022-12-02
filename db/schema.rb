@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 2022_11_30_032556) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.bigint "tag_id"
+    t.integer "tag_id"
     t.string "taggable_type"
-    t.bigint "taggable_id"
+    t.integer "taggable_id"
     t.string "tagger_type"
-    t.bigint "tagger_id"
+    t.integer "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at"
     t.string "tenant", limit: 128
@@ -102,6 +102,12 @@ ActiveRecord::Schema.define(version: 2022_11_30_032556) do
     t.datetime "remember_created_at"
     t.string "name"
     t.text "introduction"
+    t.integer "postcode"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

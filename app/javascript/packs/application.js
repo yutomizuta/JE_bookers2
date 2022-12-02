@@ -11,9 +11,12 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 
-import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application" 
+import '@fortawesome/fontawesome-free/js/all';
+
 import "./slick"
+import "./jquery.jpostal"
+import "./address_autofill"
 
 Rails.start()
 Turbolinks.start()
@@ -21,3 +24,5 @@ ActiveStorage.start()
 
 global.$ = jQuery;
 window.$ = jQuery;
+
+
